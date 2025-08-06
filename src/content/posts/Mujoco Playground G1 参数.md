@@ -11,7 +11,7 @@ lang: 'zh-CN'
 
 # Mujoco Playground G1 参数
 
-## 3️⃣ G1 机器人常量配置说明 (G1 Constants)
+## 1️⃣ G1 机器人常量配置说明 (G1 Constants)
 
 以下为 `g1` 机器人的核心环境与控制常量定义，源自其仿真配置文件（`constants.py`），用于构建物理场景、传感器映射及关节约束。
 
