@@ -3,8 +3,8 @@ title: Mujoco Playground G1 参数
 published: 2025-08-06
 description: ''
 image: ''
-tags: []
-category: ''
+tags: ['RL', 'Mujoco']
+category: '工作'
 draft: false 
 lang: 'zh-CN'
 ---
