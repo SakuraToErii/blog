@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "深海吱吱作响",
 	lang: "zh_CN", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
 	themeColor: {
-		hue: 250, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
+		hue: 170, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
 		fixed: false, // Hide the theme color picker for visitors
 	},
 	banner: {
@@ -27,7 +27,7 @@ export const siteConfig: SiteConfig = {
 	},
 	toc: {
 		enable: true, // Display the table of contents on the right side of the post
-		depth: 2, // Maximum heading depth to show in the table, from 1 to 3
+		depth: 3, // Maximum heading depth to show in the table, from 1 to 3
 	},
 	favicon: [
 		// Leave this array empty to use the default favicon
@@ -55,7 +55,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/demo-avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "Ordis", // Your name or nickname
-	bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+	bio: "深海摇摆不定，深海吱吱作响",
 	links: [
 		{
 			name: "Bilibili",
