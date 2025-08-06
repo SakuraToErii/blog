@@ -1,7 +1,7 @@
 ---
 title: Mujoco Playground G1 参数
 published: 2025-08-06
-description: ''
+description: '找到 MuJoCo Playground G1 机器人的核心参数配置'
 image: ''
 tags: ['RL', 'Mujoco']
 category: '工作'
