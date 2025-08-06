@@ -159,7 +159,7 @@ RESTRICTED_JOINT_RANGE = (
 ```python
 state = jp.hstack([
     # 骨盆局部线性速度（含噪声）
-noisy_linvel,                                            # 3
+    noisy_linvel,                                        # 3
     # 骨盆角速度（陀螺仪，含噪声）
     noisy_gyro,                                          # 3
     # 骨盆坐标系下的重力向量（含噪声）
