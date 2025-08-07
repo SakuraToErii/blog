@@ -139,3 +139,104 @@
 .collapsed {
     height: var(--collapsedHeight);
 }
+
+/* PDF 预览容器的整体布局 */
+.pdf-viewer-container {
+    margin: 2.5rem auto;
+    width: 90%;
+    max-width: 900px;
+}
+
+/* 预览卡片的核心样式 */
+.pdf-viewer-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: #f0f2f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 
+                0 8px 24px rgba(0, 0, 0, 0.08);
+    aspect-ratio: 210 / 267; /* <-- 保持这个完美的A4比例 */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* 设置一个最大宽度，这样卡片就不会过宽，从而也不会过高 */
+    /* 您可以根据需要调整 700px 这个值 */
+    max-width: 700px; 
+    
+    /* 并且让它在容器中水平居中 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 暗色模式下的背景适配 */
+:global(.dark) .pdf-viewer-card {
+    background-color: #1a1a1a;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 鼠标悬停时的浮动效果 */
+.pdf-viewer-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
+                0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* iframe 样式确保填满容器 */
+.pdf-viewer-card iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 操作按钮区域的样式 */
+.pdf-actions {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* 按钮的统一设计 */
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 99px;
+    background-color: rgba(70, 229, 195, 0.1);
+    color: #33c1a3;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* 按钮图标样式 */
+.action-button span {
+    font-size: 1.2rem;
+} 
+
+/* 按钮悬停效果 */
+.action-button:hover {
+    background-color: rgba(70, 229, 195, 0.2);
+    transform: translateY(-2px);
+}
+
+/* 错误消息样式 */
+.pdf-error-message {
+    padding: 1rem;
+    background-color: #fee;
+    color: #c33;
+    border-radius: 8px;
+    border: 1px solid #fcc;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+:global(.dark) .pdf-error-message {
+    background-color: #4a1f1f;
+    color: #ff6b6b;
+    border-color: #6b2c2c;
+}

@@ -54,7 +54,7 @@ export default defineConfig({
 :::warning
 当配置了这个值后，你所有的内部页面链接都必须以你的 `base` 值作为前缀：
 
-```php-template
+```php
 <a href="/my-repo/about">关于本站</a>
 ```
 
