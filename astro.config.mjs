@@ -122,7 +122,26 @@ export default defineConfig({
 					strict: false, // 允许在数学模式中使用 Unicode 字符（如中文标点）
 				},
 			],
-			rehypeMermaid,
+			[
+				rehypeMermaid,
+				{
+					// 修复部署后 Mermaid 中文 / 多行文字显示被裁剪：
+					// 1. 指定包含中文的 fontFamily 供服务器端 (Playwright) 正确计算文本尺寸
+					// 2. 降低自动 wrap 时的裁剪风险：增加 diagramPadding / padding
+					// 3. 通过 css 选项预加载字体
+					mermaidConfig: {
+						fontFamily:
+							"'Noto Sans SC','PingFang SC','Microsoft YaHei','WenQuanYi Micro Hei','Helvetica Neue',Arial,sans-serif",
+						flowchart: {
+							useMaxWidth: false,
+							htmlLabels: true,
+							diagramPadding: 12,
+							padding: 8,
+						},
+					},
+					css: new URL("./src/styles/mermaid-font.css", import.meta.url),
+				},
+			],
 			rehypeSlug,
 			[
 				rehypeComponents,

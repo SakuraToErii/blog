@@ -1,0 +1,11 @@
+/* Mermaid 专用字体与节点额外留白，防止中文被裁剪 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+body { /* Playwright 渲染时会加载这份 CSS，用于正确字体测量 */
+  font-family: 'Noto Sans SC','PingFang SC','Microsoft YaHei','WenQuanYi Micro Hei','Helvetica Neue',Arial,sans-serif;
+}
+
+/* 避免 svg 被父容器裁剪 */
+.mermaid svg { overflow: visible; }
+/* 给节点形状留出额外内边距，降低锯齿/裁剪概率 */
+.mermaid .node rect, .mermaid .node polygon, .mermaid .node path { stroke-width:1; }
