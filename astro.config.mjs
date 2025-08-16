@@ -129,17 +129,37 @@ export default defineConfig({
 					// 1. 指定包含中文的 fontFamily 供服务器端 (Playwright) 正确计算文本尺寸
 					// 2. 降低自动 wrap 时的裁剪风险：增加 diagramPadding / padding
 					// 3. 通过 css 选项预加载字体
+					// 4. 配置 Playwright 启动选项确保字体和渲染环境一致性
+					// 5. 使用 img-svg 策略以确保更好的部署兼容性
+					strategy: "img-svg",
 					mermaidConfig: {
 						fontFamily:
 							"'Noto Sans SC','PingFang SC','Microsoft YaHei','WenQuanYi Micro Hei','Helvetica Neue',Arial,sans-serif",
 						flowchart: {
 							useMaxWidth: false,
 							htmlLabels: true,
-							diagramPadding: 12,
-							padding: 8,
+							diagramPadding: 16,
+							padding: 12,
+						},
+						// 全局主题配置，确保文本有足够空间
+						theme: "default",
+						themeVariables: {
+							primaryTextColor: "#333",
+							fontFamily:
+								"'Noto Sans SC','PingFang SC','Microsoft YaHei','WenQuanYi Micro Hei','Helvetica Neue',Arial,sans-serif",
 						},
 					},
 					css: new URL("./src/styles/mermaid-font.css", import.meta.url),
+					// Playwright 启动选项，确保在无头浏览器中正确渲染中文
+					launchOptions: {
+						args: [
+							"--font-render-hinting=none",
+							"--disable-font-subpixel-positioning",
+							"--disable-web-security",
+							"--disable-dev-shm-usage",
+							"--no-sandbox",
+						],
+					},
 				},
 			],
 			rehypeSlug,
