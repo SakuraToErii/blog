@@ -116,7 +116,12 @@ export default defineConfig({
 			parseDirectiveNode,
 		],
 		rehypePlugins: [
-			rehypeKatex,
+			[
+				rehypeKatex,
+				{
+					strict: false, // 允许在数学模式中使用 Unicode 字符（如中文标点）
+				},
+			],
 			rehypeMermaid,
 			rehypeSlug,
 			[
